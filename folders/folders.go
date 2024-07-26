@@ -5,12 +5,11 @@ import (
 )
 
 func GetAllFolders(req *FetchFolderRequest) (*FetchFolderResponse, error) {
-	var (
-		// err error
-		// f1  Folder
-		// fs  []*Folder
-	)
-	folders, _ := FetchAllFoldersByOrgID(req.OrgID)
+	folders, err := FetchAllFoldersByOrgID(req.OrgID)
+	if err != nil {
+		return nil, err
+	}
+	
 	var response = &FetchFolderResponse{Folders: folders}
 	return response, nil
 }

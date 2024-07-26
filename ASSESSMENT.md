@@ -24,6 +24,8 @@ However, due to an error in `GetAllFolders`, the output is actually undefined. T
   - Improvement: Directly return the output from `FetchAllFoldersByOrgId`.
 - `r` and `ffr` are non-descriptive variable names in `GetAllFolders`, making code harder to understand.
   - Improvement: Rename `r` to `folders` and `ffr` to `response`. Also, changed the declaration and initialization of `response` to be in-line.
+- Errors unused in `GetAllFolders` and `FetchAllFoldersByOrgId`. It is not possible to return errors anywhere right now, but we might as well make use of error returned from `FetchAllFolderByOrgId` if the method is extended in the future.
+  - Improvement: Propagate the error into the return of `GetAllFolders`. Also, remove unused variables in `GetAllFolders`.
 
 ### Component 2
 
