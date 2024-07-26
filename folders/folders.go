@@ -10,17 +10,9 @@ func GetAllFolders(req *FetchFolderRequest) (*FetchFolderResponse, error) {
 		// f1  Folder
 		// fs  []*Folder
 	)
-	f := []Folder{}
 	r, _ := FetchAllFoldersByOrgID(req.OrgID)
-	for _, v := range r {
-		f = append(f, *v)
-	}
-	var fp []*Folder
-	for _, v1 := range f {
-		fp = append(fp, &v1)
-	}
 	var ffr *FetchFolderResponse
-	ffr = &FetchFolderResponse{Folders: fp}
+	ffr = &FetchFolderResponse{Folders: r}
 	return ffr, nil
 }
 

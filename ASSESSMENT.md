@@ -20,6 +20,8 @@ However, due to an error in `GetAllFolders`, the output is actually undefined. T
 
 - Initially, the code cannot be run. By reading the error messages in the terminal when running `go run main.go`, we can see this is due to unused variables.
   - Improvement: Comment out unused variables, and use `_` in junk loop variables.
+- There is no need to have the two loops in the `GetAllFolders` method, which seems to just dereference the pointers in the slice, and then convert them back into pointers. Firstly, it introduces the bug discussed above, and secondly, we can just return the output from `FetchAllFoldersByOrgId`, formatted into the required struct type.
+  - Improvement: Directly return the output from `FetchAllFoldersByOrgId`.
 
 ### Component 2
 
