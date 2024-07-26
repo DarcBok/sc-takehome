@@ -14,7 +14,7 @@ In order, the code does the following:
 
 In short, the code tries to collect the folders where the `org_id` field matches the `DefaultOrgId`, and print them out in a slice.
 
-However, due to an error in `GetAllFolders`, the output is actually undefined. This is because in the second loop, the code appends the memory address of `&v1`, and not the actual folder's memory address. Hence, the output of the main function is undefined, as `v1` goes out of scope and is subject to garbage collection by the time the response is pretty-printed. If `v1` has not been subject to garbage collection, it will print the final matched entry repeated by the number of matches.
+However, due to an error in `GetAllFolders`, the output prints the final matched entry repeated by the number of matches. This is because in the second loop, the code appends the memory address of `v1`, and not the actual folder's memory address. Since `v1` is reassigned at every iteration of the loop, it eventually contains the final value that was assigned to it, which is repeatedly printed by the main function.
 
 #### Improvements
 
