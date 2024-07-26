@@ -22,6 +22,8 @@ However, due to an error in `GetAllFolders`, the output is actually undefined. T
   - Improvement: Comment out unused variables, and use `_` in junk loop variables.
 - There is no need to have the two loops in the `GetAllFolders` method, which seems to just dereference the pointers in the slice, and then convert them back into pointers. Firstly, it introduces the bug discussed above, and secondly, we can just return the output from `FetchAllFoldersByOrgId`, formatted into the required struct type.
   - Improvement: Directly return the output from `FetchAllFoldersByOrgId`.
+- `r` and `ffr` are non-descriptive variable names in `GetAllFolders`, making code harder to understand.
+  - Improvement: Rename `r` to `folders` and `ffr` to `response`. Also, changed the declaration and initialization of `response` to be in-line.
 
 ### Component 2
 
