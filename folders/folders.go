@@ -4,12 +4,12 @@ import (
 	"github.com/gofrs/uuid"
 )
 
-func GetAllFolders(req *FetchFolderRequest) (*FetchFolderResponse, error) {
+func GetAllFoldersByOrgId(req *FetchFolderRequest) (*FetchFolderResponse, error) {
 	folders, err := FetchAllFoldersByOrgID(req.OrgID)
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var response = &FetchFolderResponse{Folders: folders}
 	return response, nil
 }
