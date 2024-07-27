@@ -4,6 +4,8 @@ import (
 	"github.com/gofrs/uuid"
 )
 
+var FetchData = GetSampleData;
+
 func GetAllFoldersByOrgId(req *FetchFolderRequest) (*FetchFolderResponse, error) {
 	folders, err := FetchAllFoldersByOrgID(req.OrgID)
 	if err != nil {
@@ -15,7 +17,7 @@ func GetAllFoldersByOrgId(req *FetchFolderRequest) (*FetchFolderResponse, error)
 }
 
 func FetchAllFoldersByOrgID(orgID uuid.UUID) ([]*Folder, error) {
-	folders := GetSampleData()
+	folders := FetchData()
 
 	resFolder := []*Folder{}
 	for _, folder := range folders {
