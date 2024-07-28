@@ -2,34 +2,15 @@
 
 The technical take home for SC graduate program of 2025.
 
-## Getting started
+## Submission
 
-Requires `Go` >= `1.20`
-
-follow the official install instruction: [Golang Installation](https://go.dev/doc/install)
-
-To run the code on your local machine
-```
-  go run main.go
-```
-
-## Folder structure
-
-```
-| go.mod
-| README.md
-| sample.json
-| main.go
-| folders
-    | folders.go
-    | folders_test.go
-    | static.go
-```
+All comments and write-ups can be found in `ASSESSMENT.md`.
 
 ## Instructions
 
 - This technical assessment consists of 2 components:
 - Component 1:
+
   - within `folders.go`.
     - We would like you to read through, and run, the code.
     - Write some comments on what you think the code does.
@@ -43,9 +24,11 @@ To run the code on your local machine
   - Write a short explanation of your chosen solution.
 
 ## What is pagination?
-  - Pagination helps break down a large dataset into smaller chunks.
-  - Those smaller chunks can then be served to the client, and are usually accompanied by a token pointing to the next chunk.
-  - The end result could potentially look like this:
+
+- Pagination helps break down a large dataset into smaller chunks.
+- Those smaller chunks can then be served to the client, and are usually accompanied by a token pointing to the next chunk.
+- The end result could potentially look like this:
+
 ```
   original data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -71,7 +54,6 @@ To run the code on your local machine
 ## Submission
 
 Create a repo in your chosen git repository (make sure it is public so we can access it) and reply with the link to your code. We recommend using GitHub.
-
 
 ## Contact
 
