@@ -34,3 +34,9 @@ To mock the `GetSampleData` query, I added a package level variable `FetchData` 
 ### Component 2
 
 #### Explanation
+
+To implement pagination, I use the token-based approach specified in the README. This means the client can query using a `Token`, which can be received from the response of the request of the previous page. In this `Token`, I encode an index to begin looping from in `FetchAllFoldersByOrgId` when matching data. This approach means that the logic doesn't need to loop through the entire data set every query. The response can then just encode the next index to begin querying from. The response will be an empty string if the entire data set has been searched. I also added a `PageSize` parameter to the request so the client can specify the size of pages.
+
+A drawback of this approach is that `FetchAllFoldersByOrgId` cannot know if the final match has been reached, as it doesn't search ahead. However, the client can perform 1 extra query to get this information. I outlined this logic in the final test case in `folders_pagination_test.go`.
+
+Another drawback is that this approach assumes the data is ordered in the same way in every `GetSampleData` call. This is the case given the implementation in `static.go`.
